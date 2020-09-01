@@ -7,8 +7,12 @@ Check if a player is using Android.
 * New SA-MP Android versions may have a default response to RPC_ClientCheck, making this include useless.
 * This can also be used to detect users who have NOPed the ClientCheck RPC.
 
+## Dependencies
+* [Pawn.RakNet](https://github.com/urShadow/Pawn.RakNet) by [urShadow](https://github.com/urShadow)
+
 ## Installation
-1. Include this in your gamemode/filterscript.
+1. Install the dependencies
+2. Include this in your gamemode/filterscript.
  
 ## Usage 
 ```pawn
