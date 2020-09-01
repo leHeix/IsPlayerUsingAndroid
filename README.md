@@ -12,10 +12,10 @@ Check if a player is using Android.
  
 ## Usage 
 ```pawn
-public OnPlayerSpawn( playerid )
+public OnPlayerSpawn(playerid)
 {
     if(IsPlayerAndroid(playerid))
-        SendClientMessage(playerid, "You're connected from an Android version");
+        SendClientMessage(playerid, -1, "You're connected from an Android version");
 
     return 1;
 }
