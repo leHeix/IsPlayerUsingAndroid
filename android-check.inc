@@ -15,7 +15,7 @@
 	native SendClientCheck(playerid, type, arg, offset, size);
 #endif
 
-#define IsPlayerAndroid(%0)		GetPVarInt(%0, "NotAndroid") == 0
+new bool:grg_bIsUsingAndroid[MAX_PLAYERS] = {true, ...};
 
 public OnPlayerConnect(playerid)
 {
@@ -39,7 +39,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 
 		if(type == 0x48)
 		{
-			SetPVarInt(playerid, "NotAndroid", true);
+			grg_bIsUsingAndroid[playerid] = false;
 		}
 	}
 
@@ -49,6 +49,9 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 		return 1;
 	#endif
 }
+
+// - Functions (kind of)
+#define IsPlayerAndroid(%0)		grg_bIsPlayerUsingAndroid[%0]
 
 // - Hooks
 
