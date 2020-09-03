@@ -15,11 +15,11 @@
 	native SendClientCheck(playerid, type, arg, offset, size);
 #endif
 
-new bool:grg_bIsPlayerUsingAndroid[MAX_PLAYERS] = {true, ...};
+new bool:g_rgbIsPlayerUsingAndroid[MAX_PLAYERS] = {true, ...};
 
 public OnPlayerConnect(playerid)
 {
-	grg_bIsPlayerUsingAndroid[playerid] = true; // Reset previous state
+	g_rgbIsPlayerUsingAndroid[playerid] = true; // Reset previous state
 	
 	SendClientCheck(playerid, 0x48, 0, 0, 2);
 	
@@ -41,7 +41,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 
 		if(type == 0x48)
 		{
-			grg_bIsPlayerUsingAndroid[playerid] = false;
+			g_rgbIsPlayerUsingAndroid[playerid] = false;
 		}
 	}
 
@@ -53,7 +53,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 }
 
 // - Functions (kind of)
-#define IsPlayerAndroid(%0)		grg_bIsPlayerUsingAndroid[%0]
+#define IsPlayerAndroid(%0)		g_rgbIsPlayerUsingAndroid[%0]
 
 // - Hooks
 
