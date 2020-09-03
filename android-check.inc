@@ -19,6 +19,8 @@ new bool:grg_bIsPlayerUsingAndroid[MAX_PLAYERS] = {true, ...};
 
 public OnPlayerConnect(playerid)
 {
+	grg_bIsPlayerUsingAndroid[playerid] = true; // Reset previous state
+	
 	SendClientCheck(playerid, 0x48, 0, 0, 2);
 	
 	#if defined ANDROID_OnPlayerConnect
