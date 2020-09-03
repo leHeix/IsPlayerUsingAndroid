@@ -54,6 +54,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 
 // - Functions (kind of)
 #define IsPlayerAndroid(%0)		g_rgbIsPlayerUsingAndroid[%0]
+#define IsPlayerUsingAndroid(%0) 	IsPlayerAndroid(%0)
 
 // - Hooks
 
