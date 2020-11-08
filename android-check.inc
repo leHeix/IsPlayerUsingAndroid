@@ -4,7 +4,7 @@
 #define _inc_android_check
 
 /*
-									IsPlayerUsingAndroid
+					IsPlayerUsingAndroid
 	Original version by Fairuz-Afdhal: https://github.com/Fairuz-Afdhal/IsPlayerUsingAndroid
 */
 
@@ -34,15 +34,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 {
 	if(rpcid == 0x67) // RPC_ClientCheck
 	{
-		new type;
-		BS_ReadValue(bs,
-			PR_UINT8, type
-		);
-
-		if(type == 0x48)
-		{
-			g_rgbIsPlayerUsingAndroid[playerid] = false;
-		}
+		g_rgbIsPlayerUsingAndroid[playerid] = false;
 	}
 
 	#if defined ANDROID_OnIncomingRPC
@@ -54,7 +46,7 @@ public OnIncomingRPC(playerid, rpcid, BitStream:bs)
 
 // - Functions (kind of)
 #define IsPlayerAndroid(%0)		g_rgbIsPlayerUsingAndroid[%0]
-#define IsPlayerUsingAndroid(%0) 	IsPlayerAndroid(%0)
+#define IsPlayerUsingAndroid(%0) 	g_rgbIsPlayerUsingAndroid[%0]
 
 // - Hooks
 
